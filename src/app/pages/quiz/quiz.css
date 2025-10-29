@@ -1,0 +1,22 @@
+.quiz-container {
+  max-width: 450px;
+  margin: 50px auto;
+  text-align: center;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+button {
+  background: #673ab7;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+}
+button:hover { background: #512da8; }

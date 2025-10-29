@@ -1,0 +1,24 @@
+<div class="quiz-container">
+  <h2>✨ Quick Quiz ✨</h2>
+  <form (ngSubmit)="submitQuiz()">
+    <label>Your Name:</label>
+    <input [(ngModel)]="answers.name" name="name" required>
+
+    <label>Favourite Color:</label>
+    <input [(ngModel)]="answers.color" name="color" type="color" required>
+
+    <label>Dream Vacation:</label>
+    <input [(ngModel)]="answers.vacation" name="vacation" required>
+
+    <label>Coffee or Tea?</label>
+    <select [(ngModel)]="answers.drink" name="drink">
+      <option value="Coffee">☕ Coffee</option>
+      <option value="Tea">🍵 Tea</option>
+    </select>
+
+    <label>Describe Yourself in One Word:</label>
+    <input [(ngModel)]="answers.vibe" name="vibe" required>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

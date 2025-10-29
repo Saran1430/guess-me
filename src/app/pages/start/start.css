@@ -1,0 +1,22 @@
+.start-container {
+  text-align: center;
+  margin-top: 100px;
+  animation: fadeIn 1s;
+}
+button {
+  background: #ff4081;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+button:hover {
+  background: #e91e63;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
