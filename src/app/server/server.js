@@ -23,7 +23,7 @@ app.post("/save", (req, res) => {
 });
 
 // ✅ Serve Angular build
-const angularDistPath = path.join(__dirname, "../../../dist/browser"); // adjust if your build path differs
+const angularDistPath = path.join(__dirname, "../../../dist/know-me-if-you-can/browser"); // adjust if your build path differs
 app.use(express.static(angularDistPath));
 
 // ✅ Catch-all route for Angular (Express 5 fix)
