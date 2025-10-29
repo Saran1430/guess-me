@@ -1,7 +1,6 @@
 import express from "express";
 import fs from "fs";
 import cors from "cors";
-import path from "path";
 
 const app = express();
 app.use(cors());
@@ -23,9 +22,7 @@ app.post("/save", (req, res) => {
 
   res.json({ message: "Saved successfully!" });
 });
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+
+app.listen(3000, () => {
   console.log("🚀 Server running at http://localhost:3000");
 });
-
-
