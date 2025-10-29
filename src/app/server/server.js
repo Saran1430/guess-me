@@ -1,28 +1,34 @@
 import express from "express";
-import fs from "fs";
 import cors from "cors";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ API route
 app.post("/save", (req, res) => {
-  const file = "responses.json";
-
-  // Read existing data or create empty array
+  const file = path.join(__dirname, "responses.json");
   const existing = fs.existsSync(file)
     ? JSON.parse(fs.readFileSync(file, "utf8"))
     : [];
-
-  // Add new response
   existing.push(req.body);
-
-  // Save back to file
   fs.writeFileSync(file, JSON.stringify(existing, null, 2));
-
-  res.json({ message: "Saved successfully!" });
+  res.json({ message: "Saved!" });
 });
 
-app.listen(3000, () => {
-  console.log("🚀 Server running at http://localhost:3000");
+// ✅ Serve Angular build
+const angularDist = path.join(__dirname, "../../../dist/know-me-if-you-can/browser"); // adjust if needed
+app.use(express.static(angularDist));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(angularDist, "index.html"));
 });
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
