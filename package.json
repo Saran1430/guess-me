@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server/server.js",
-    "build": "ng build",
+    "start": "node src/app/server/server.js",
+    "build": "cd src && ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:know-me-if-you-can": "node dist/know-me-if-you-can/server/server.mjs"

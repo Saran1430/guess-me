@@ -23,11 +23,12 @@ app.post("/save", (req, res) => {
 });
 
 // ✅ Serve Angular build
-const angularDist = path.join(__dirname, "../../../dist/know-me-if-you-can/browser"); // adjust if needed
-app.use(express.static(angularDist));
+const angularDistPath = path.join(__dirname, "../../../dist/browser"); // adjust if your build path differs
+app.use(express.static(angularDistPath));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(angularDist, "index.html"));
+// ✅ Catch-all route for Angular (Express 5 fix)
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(angularDistPath, "index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
